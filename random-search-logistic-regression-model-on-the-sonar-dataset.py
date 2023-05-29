@@ -43,24 +43,6 @@ result = search.fit(X, y)
 print('Best Score: %s', result.best_score_)
 print('Best Hyperparameters: %s', result.best_params_)
 
-print("")
-print("=================== USING GRID SEARCH FOR CLASSIFICATION ===================")
-print("")
 
-space2 = dict()
-space2['solver'] = ['newton-cg', 'lbfgs', 'liblinear']
-space2['penalty'] = ['none', 'l1', 'l2', 'elasticnet']
-space2['C'] = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1, 10, 100]
 
-#Define search by Grid  Search for classification
-from sklearn.model_selection import GridSearchCV
-
-search2 = GridSearchCV(model, space2, scoring='accuracy', n_jobs=1, cv=cv)
-
-#execute search
-result = search2.fit(X, y)
-
-#Summarize result
-print('Best Score: %s', result.best_score_)
-print('Best Parameter: %s', result.best_params_)
 
